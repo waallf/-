@@ -16,7 +16,7 @@
     LSTM的一个输入
 
     输入： Language LSTM t-1时刻的输出、所有object box feature 的均值、和先前产生单词的encoding
-    !(./images/botom_up_top_down_attentionLSTM.PNG)
+    ![attentionLSTM](./images/botom_up_top_down_attentionLSTM.PNG)
 
     然后通过ht计算一个权重（就是你方法见论文，很简单就是进行了一个tanh）,将图像特征与权重相乘再相加，得到Language LSTM的输入图像特征
     * 计算的这个权重就是attention机制
@@ -25,7 +25,7 @@
 根据上面所述产生的图像特征以及ht来预测产生单词
 
 ## 损失函数 (最小化  t-1时刻的gt单词 根据网络参数产生t时刻单词 的交叉熵 )
-!(./images/botm_up_top_dowm_loss.PNG)
+![loss](./images/botm_up_top_dowm_loss.PNG)
 其中y*是gt 单词
 
 
