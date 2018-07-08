@@ -12,14 +12,11 @@
 ## Caption Model
 ![结构图](./images/botom_up_top_down.PNG)
 * 两个LSTM:TOP-Down Attention LSTM   Language LSTM
-### TOP-Down Attention LSTM: 通过LSTM t时刻出的ht来对对每一个每一个选出的object box feature 计算权重，然后将乘以权重的特征作为第二个
-    LSTM的一个输入
-
-    输入： Language LSTM t-1时刻的输出、所有object box feature 的均值、和先前产生单词的encoding
-    ![attentionLSTM](./images/botom_up_top_down_attentionLSTM.PNG)
-
-    然后通过ht计算一个权重（就是你方法见论文，很简单就是进行了一个tanh）,将图像特征与权重相乘再相加，得到Language LSTM的输入图像特征
-    * 计算的这个权重就是attention机制
+### TOP-Down Attention LSTM: 通过LSTM t时刻出的ht来对对每一个每一个选出的object box feature 计算权重，然后将乘以权重的特征作为第二个LSTM的个输入   
+输入： Language LSTM t-1时刻的输出、所有object box feature 的均值、和先前产生单词的encoding  
+![attentionLSTM](./images/botom_up_top_down_attentionLSTM.PNG)  
+然后通过ht计算一个权重（就是你方法见论文，很简单就是进行了一个tanh）,将图像特征与权重相乘再相加，得到Language LSTM的输入图像特征  
+* 计算的这个权重就是attention机制  
 
 ### Language LSTM
 根据上面所述产生的图像特征以及ht来预测产生单词
