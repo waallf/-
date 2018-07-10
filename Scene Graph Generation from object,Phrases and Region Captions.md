@@ -28,8 +28,21 @@ caption proposal图建立：当一个caption proposal 与 phrase proposal 的fra
 ![门函数](./images/Scene Graph Generation from object,Phrases and Region Captions/gate_function.PNG)
 
 * 开始对object features 进行refine
-![refine](./images/Scene Graph Generation from object,Phrases and Region Captions/object_refine.PNG)
+![object_refine](./images/Scene Graph Generation from object,Phrases and Region Captions/object_refine.PNG)
 增加了一个全连接，实现modality transformation
+### Refine Feature of visual Phrase and Caption
+一个caption node 连接着几个phrase node ,和object refine 一样，要进行合并然后refine feature
+
+![phraseAndCaption_refine](./images/Scene Graph Generation from object,Phrases and Region Captions/phraseAndCaption_refine.PNG)
+## Scene Graph Generation
+因为特征已经经过融合，object与 之间的关系 可以通过object feature 与 phrase feature 直接预测
+使用一个矩阵表示场景图，每一个物体预测一个类别（包括背景），（i,j）表示他们之间的关系，没关系是输出<irrelavant>
+### Region Caption Generation
+将caption feature 输入到一个image caption 网络中[参考文献1](./images/Scene Graph Generation from object,Phrases and Region Captions/deep visual-semantic ailgnments for generating image descriptions.pdf)
+                                                [参考文献2](./images/Scene Graph Generation from object,Phrases and Region Captions/fully convolution location network.pdf)
+
+
+
 
 
 
