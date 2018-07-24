@@ -18,7 +18,7 @@ caption region: RPN网络
 短语与object节点的结构图通过每个object节点互相连接建立，每个phrase proposal连接两个物体，<subject-predicate-object>
 caption proposal图建立：当一个caption proposal 与 phrase proposal 的fraction超过一个阈值（论文0.7）的时候就建立一个无向边连接
 
-![动态结构图](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/Dynamic Graph.PNG)
+![动态结构图](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/DynamicGraph.PNG)
 ### Feature Refining
 通过融合三个任务的特征来进行精调
 #### Refine Feature of Object(phrase proposal and object proposal):
@@ -45,8 +45,8 @@ caption proposal图建立：当一个caption proposal 与 phrase proposal 的fra
 使用一个矩阵表示场景图，每一个物体预测一个类别（包括背景），（i,j）表示他们之间的关系，没关系是输出<irrelavant>
 ### Region Caption Generation
 将caption feature 输入到一个image caption 网络中
-[参考文献1](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/deep visual-semantic ailgnments for generating image descriptions.pdf)
-[参考文献2](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/fully convolution location network.pdf)
+[参考文献1](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/deep_visual-semantic_ailgnments_for_generating_image_descriptions.pdf)
+[参考文献2](./images/SceneGraphGenerationfromobjectPhrasesandRegionCaptions/fully_convolution_location_network.pdf)
 
 
 
