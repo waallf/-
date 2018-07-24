@@ -1,5 +1,7 @@
 # [code](http://www.panderson.me/up-down-attention)
+
 ##创新
+
 1. 我认为最主要的创新是是用了两个LSTM网络来完成图像描述的任务(Top dwon)。
 2. 没有是用全部的图像特征，而是先通过一个Faster Rcnn来进行object detection ,根据一些阈值来选去特征，然后才输入lstm(Bootom up)
 
