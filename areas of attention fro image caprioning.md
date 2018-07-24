@@ -25,8 +25,8 @@
 给定一个RNN的state，使用边缘概率密度来预测下一个单词
 ![bianyuangailvmidu](./images/areas_of_attention_for_image_captioning/bianyuangailvmidu.PNG)
 
-除了利用image regions作为条件预测单词，还使用image region更新RNN state
-    在描述与image region之间建立一个连接用于state更新
+除了利用image regions作为条件预测单词，还使用image region更新RNN state在描述与image region之间建立一个连接用于state更新
+
 ![quyubinayuangailvmidu](./images/areas_of_attention_for_image_captioning/quyubinayuangailvmidu.PNG)
 
 ![rnngengxin](./images/areas_of_attention_for_image_captioning/rnngengxin.PNG)
@@ -42,6 +42,7 @@
 ### spatial transformers
 没有bounding box 标签，所以需要一个特殊的机制进行反向传播（论文并没有细说）
 对特征图上的每一个目标框进行一个仿射变换：
+
 ![fangshebianhuan](./images/areas_of_attention_for_image_captioning/fangshebianhuan.PNG)
 
 location function 包含两个卷积层，去计算一个仿射变换A。
