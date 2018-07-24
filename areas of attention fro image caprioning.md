@@ -1,4 +1,4 @@
-# [论文]（./papper/areas_of_attention_for_image_captioning.pdf）
+# [论文]./papper/areas_of_attention_for_image_captioning.pdf）
 ## 创新
 1. 相比于之前的attention机制，作者提出了一个新的attention机制，不仅可以考虑图像于RNN中state，同时也考虑图像区域与单词，状态
 之间的两两关系（也有在单词与图像区域间交换信息的，但都是离线学习，即先训练好一个目标监测网络，为本文方法是用一个弱监督的方法实现
