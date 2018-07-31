@@ -1,4 +1,4 @@
-# [参考]（https://zhuanlan.zhihu.com/p/32333802）
+# [参考](https://zhuanlan.zhihu.com/p/32333802)
 ## 创新
 在decoder 的基础上加入了attention机制  hard 与 soft
 在进行选择特征图时，没有利用全联接层，而是使用VGG最后一层的卷积输出的结果
@@ -37,9 +37,9 @@ Ti,j 是向量映射
 ## 两个不同的attention机制
 ### hard attention
 其核心是随机采样在这些区域中进行选择。
-在hard attention中，权重![alpha](./images/show_attend_and_tell/alpha.gif)表示图像区域ai在
-否则为0.所以有
-![hard_attention_quyu](./images/show_attend_and_tell/hard_attention_quyu.png)
+在hard attention中，权重$\alpha&ti 表示图像区域ai在t时刻被选中作为decoder的概率，
+有且仅有一个被选中，所以引入Sti,当区域被选中时取1，否则为0.所以有
+![hard_attention_quyu](./images/show_attend_and_tell/hard_attention_quyu.PNG)
 * 接下来该求解Sti：
 本文中将St作为隐变量，参数是｛αi｝的多元伯努利分布（即两点分布）：
 ![bonulifenbu](./images/show_attend_and_tell/bonulifenbu.png)
