@@ -34,7 +34,25 @@ Ti,j 是向量映射
 
 ## 两个不同的attention机制
 ### hard attention
-其核心是随机采样灾这些区域中进行选择。
+其核心是随机采样在这些区域中进行选择。
+在hard attention中，权重![alpha](./images/show_attend_and_tell/alpha.gif)表示图像区域ai在
+否则为0.所以有
+![hard_attention_quyu](./images/show_attend_and_tell/hard_attention_quyu.png)
+* 接下来该求解Sti：
+本文中将St作为隐变量，参数是｛αi｝的多元伯努利分布（即两点分布）：
+![bonulifenbu](./images/show_attend_and_tell/bonulifenbu.png)
+为了使用极大似然函数，需要将隐变量边缘化，然后使用边缘Log似然函数。
+![siranhanshu](./images/show_attend_and_tell/siranhanshu.png)
+不等号使用的是jensen不等式
+对于目标函数的梯度：
+![tidu](./images/show_and_and_tell/tidu.png)
+然后用N次蒙特卡洛采样来近似：
+![mengtekaluo](./images/show_and_and_tell/mengtekaluo.png)
+在蒙特卡洛计算梯度时，可以使用滑动平均来减小梯度的房差，为了进一步减小方差，引入多元伯努利分布
+的熵 H[S]，而且对于一张给定图片，0.5的概率将$$\tilde{s}$$设置它的期望值是&\alpha$。这两个就散提升了随机
+算法的鲁棒性，最终学习规则为:
+![zuizhongtidu](./images/show_and_and_tell/zuizhongtidu.png)
+其中两个系数是超参数。
 ### soft attention
 对每个向量(表示不同的区域)分配一个权重，然后相加最后得到一个一维的向量
 ![soft_attention](./images/show_attend_and_tell/soft_attention.jpg)
