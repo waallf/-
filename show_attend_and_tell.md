@@ -57,4 +57,5 @@ Ti,j 是向量映射
 其中两个系数是超参数。
 ### soft attention
 对每个向量(表示不同的区域)分配一个权重，然后相加最后得到一个一维的向量
+
 ![soft_attention](./images/show_attend_and_tell/soft_attention.jpg)
