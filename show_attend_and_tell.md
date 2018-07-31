@@ -37,13 +37,15 @@ Ti,j 是向量映射
 ## 两个不同的attention机制
 ### hard attention
 其核心是随机采样在这些区域中进行选择。
-在hard attention中，权重$\alpha&ti 表示图像区域ai在t时刻被选中作为decoder的概率，
+在hard attention中，权重$\alpha$ti 表示图像区域ai在t时刻被选中作为decoder的概率，
 有且仅有一个被选中，所以引入Sti,当区域被选中时取1，否则为0.所以有
 ![hard_attention_quyu](./images/show_attend_and_tell/hard_attention_quyu.PNG)
 * 接下来该求解Sti：
 本文中将St作为隐变量，参数是｛αi｝的多元伯努利分布（即两点分布）：
-![bonulifenbu](./images/show_attend_and_tell/bonulifenbu.png)
+![bonulifenbu](./images/show_attend_and_tell/bonulifenbu.PNG)
+
 为了使用极大似然函数，需要将隐变量边缘化，然后使用边缘Log似然函数。
+
 ![siranhanshu](./images/show_attend_and_tell/siranhanshu.png)
 不等号使用的是jensen不等式
 对于目标函数的梯度：
