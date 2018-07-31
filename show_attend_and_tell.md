@@ -23,7 +23,9 @@ a = {a1,....al} ai是D维
 3. Zt是t时刻的特征图的attention表示，因为每个时刻的关注点是不一样的，所以attention的权重是和decode
 的上一时刻的隐藏层有关的
 4. m是词向量的维度，n是LSTM的维度
+
 ![lstmnihejisuan](./images/show_attend_and_tell/lstmnihejisuan.jpg)
+
 Ti,j 是向量映射
 ## attention权重：
 ![attention_weight](./images/show_attend_and_tell/attention_weight.jpg)
