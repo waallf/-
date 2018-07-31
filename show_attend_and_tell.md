@@ -47,19 +47,21 @@ Ti,j 是向量映射
 为了使用极大似然函数，需要将隐变量边缘化，然后使用边缘Log似然函数。
 
 ![siranhanshu](./images/show_attend_and_tell/siranhanshu.png)
+
 不等号使用的是jensen不等式
 
 对于目标函数的梯度：
-![tidu](./images/show_and_and_tell/tidu.png)
+![tidu](./images/show_attend_and_tell/tidu.png)
 
 然后用N次蒙特卡洛采样来近似：
-![mengtekaluo](./images/show_and_and_tell/mengtekaluo.png)
+
+![mengtekaluo](./images/show_attend_and_tell/mengtekaluo.png)
 
 在蒙特卡洛计算梯度时，可以使用滑动平均来减小梯度的房差，为了进一步减小方差，引入多元伯努利分布
 的熵 H[S]，而且对于一张给定图片，0.5的概率将 $$\tilde{s}$$ 设置它的期望值是 &\alpha$ 。这两个就散提升了随机
 算法的鲁棒性，最终学习规则为:
 
-![zuizhongtidu](./images/show_and_and_tell/zuizhongtidu.png)
+![zuizhongtidu](./images/show_attend_and_tell/zuizhongtidu.png)
 
 其中两个系数是超参数。
 ### soft attention
