@@ -10,8 +10,10 @@ soft atttion是对图像不同的区域学习一个权重
 ### Encoder :VGG
 1. 经过VGG后输出14x14x512
 2. Flatten后为196x512,L=196 D=512 称为 annotation vectors
-a = {a1,....al} ai是D维
+  a = {a1,....al} ai是D维
 3. 在t时刻，对每个位置分配一个权重，然后相加，就得到了这个特征图在t时刻的表示Zt
+#### ==缺点==因为在本文中直接对L维的每一维分配了一个权重，所以这将会导致图像之间的局部区域性消失
+
 ### Deocder：LSTM
 ![lstm](./images/show_attend_and_tell/lstm.jpg)
 #### lstm隐藏层与cell层的初始化

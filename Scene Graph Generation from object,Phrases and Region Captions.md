@@ -10,8 +10,12 @@
 ### step1：Region Proposal
 object proposal: RPN网络
 phrase region proposal : 两两object 节点连接
-caption region: RPN网络
+caption region: RPN网络(直接有GT训练得出)
+
 ### step2: Feature Speclization
+
+
+
 对于不同层级的任务对应着不同的特征
 通过ROI Pooling 然后对每一层级的任务接一个1024维的全连接层
 ### Dynamic Graph Construction

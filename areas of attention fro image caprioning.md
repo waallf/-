@@ -1,16 +1,14 @@
-# [论文]./papper/areas_of_attention_for_image_captioning.pdf）
+#[论文](./papper/areas_of_attention_for_image_captioning.pdf) 
+
 ## 创新
-1. 相比于之前的attention机制，作者提出了一个新的attention机制，不仅可以考虑图像于RNN中state，同时也考虑图像区域与单词，状态
-之间的两两关系（也有在单词与图像区域间交换信息的，但都是离线学习，即先训练好一个目标监测网络，为本文方法是用一个弱监督的方法实现
-目标监测，而且整个网络是end to end 的）。
+1. 相比于之前的attention机制，作者提出了一个新的attention机制，不仅可以考虑图像于RNN中state，同时也考虑图像区域与单词，state之间的两两关系（也有在单词与图像区域间交换信息的，但都是离线学习，即先训练好一个目标检测网络，为本文方法是用一个弱监督的方法实现目标检测，而且整个网络是end to end 的）。
 2. 应用了 spatial_transfromer_networks
 ## attention 机制
 原来的image caption是将图像在初始化的时候作为rnn的初始值，而本文提出的方法是在产生每个单词的时候输入图像的不同区域
 1.对单词和图像区域进行打分，然后利用边缘概率密度函数就算下一单词的分布
 2.建立了一个联合概率密度函数 p(wt,rt|ht),wt是t时刻的单词，rt为t时刻关注的区域，ht是RNN内部状态
 
-  边缘概率密度函数p(wt|ht)预测下一个单词，p(rt|ht)用来提供visual feedback，用于RNN state 更新，rt是一个one-hot，表示t时刻的
-  image region的index
+  边缘概率密度函数p(wt|ht)预测下一个单词，p(rt|ht)用来提供visual feedback，用于RNN state 更新，rt是一个one-hot，表示t时刻的  image region的index
 
 
    ![lianhegailvmidu](./images/areas_of_attention_for_image_captioning/lianhegailvmidu.PNG)
