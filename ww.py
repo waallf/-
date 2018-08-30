@@ -1,32 +1,40 @@
-n,m = list(map(int,input().strip().split()))
+n, l = [int(a) for a in input().strip().split()]
+chars = [[] for _ in range(l)]
+words = []
+for _ in range(n):
+    tmp_word = input()
+    words.append(tmp_word)
+    for i, x in enumerate(chars):
+        x.append(tmp_word[i])
+words.sort()
+for i, _ in enumerate(chars):
+    chars[i].sort()
+gen_words_index = [0 for i in range(l)]
 
-all_data = []
-for i in range(n):
-    temp_list = []
-    temp_str = input().strip()
-    for j in range(m):
-        temp_list.append(temp_str[j] ) 
-    all_data.append(temp_list)
+'''
+for i in reversed(range(l)):
+    if gen_words_index[i] < len(chars[i])-1:
+        gen_words_index[i] += 1
+        continue
+    else:
+        if i != 0:
+            gen_words_index[i] = 0
+'''
 
-for j in range(m):
-    x_start=-1
-    x_index=n-1
-    while(x_index>=0):
-        if all_data[x_index][j] =='x':
-            x_start = x_index  
-        #elif all_data[x_index][j] =='.':
-            #continue
-        elif all_data[x_index][j] =='o' :
-            if x_start == -1:
-                all_data[x_index][j] ='.'
-            else:
-                all_data[x_index][j] ='.'
-                all_data[x_start-1][j] = 'o'
-                x_start = x_start-1
-        x_index = x_index-1        
-            
-for i in range(n):
-    str_temp = ''
-    for j in range(m):
-        str_temp = str_temp+str(all_data[i][j])
-    print(str_temp)
+
+i = l - 1
+all_index = 0
+while i >= 0 and all_index < n:
+    curr_word = ''.join([chars[i][gen_words_index[i]] for i in range(l)])
+    if curr_word != words[all_index]:
+        print(curr_word)
+        exit()
+    all_index += 1
+    if gen_words_index[i] < len(chars[i])-1:
+        gen_words_index[i] += 1
+    else:
+        if i != 0:
+            gen_words_index[i] = 0
+            i -= 1
+
+print('-')
