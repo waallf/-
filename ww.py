@@ -12,7 +12,10 @@ elif buffed >= 2*normal:
         print(int((HP / buffed)  * 2 ))
 
     else:
-        print ((math.ceil(HP / buffed) -1)*2 +1)
+        if HP % buffed >=  normal:
+            print(math.ceil((HP / buffed) * 2))
+        else:
+            print ((math.ceil(HP / buffed) -1)*2 +1)
 
 else:
     print(math.ceil(HP / normal))
