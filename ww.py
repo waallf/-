@@ -3,7 +3,7 @@ HP = int(input().split( )[0])
 normal = float(input().split( )[0])
 buffed = float(input().split( )[0])
 
-if buffed > HP:
+if buffed >= HP:
     print(2)
 if buffed >= 2*normal:
     if HP % buffed ==0:
