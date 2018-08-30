@@ -1,16 +1,32 @@
-import math
-HP = int(input().split( )[0])
-normal = float(input().split( )[0])
-buffed = float(input().split( )[0])
+n,m = list(map(int,input().strip().split()))
 
-if buffed >= HP:
-    print(2)
-if buffed >= 2*normal:
-    if HP % buffed ==0:
-        print(int((HP / buffed)  * 2 ))
+all_data = []
+for i in range(n):
+    temp_list = []
+    temp_str = input().strip()
+    for j in range(m):
+        temp_list.append(temp_str[j] ) 
+    all_data.append(temp_list)
 
-    else:
-        print ((math.ceil(HP / buffed) -1)*2 +1)
-
-else:
-    print(math.ceil(HP / normal))
+for j in range(m):
+    x_start=-1
+    x_index=n-1
+    while(x_index>=0):
+        if all_data[x_index][j] =='x':
+            x_start = x_index  
+        #elif all_data[x_index][j] =='.':
+            #continue
+        elif all_data[x_index][j] =='o' :
+            if x_start == -1:
+                all_data[x_index][j] ='.'
+            else:
+                all_data[x_index][j] ='.'
+                all_data[x_start-1][j] = 'o'
+                x_start = x_start-1
+        x_index = x_index-1        
+            
+for i in range(n):
+    str_temp = ''
+    for j in range(m):
+        str_temp = str_temp+str(all_data[i][j])
+    print(str_temp)
